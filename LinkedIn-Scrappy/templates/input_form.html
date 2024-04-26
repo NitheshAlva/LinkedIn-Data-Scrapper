@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter LinkedIn ID</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='input_form_style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Enter LinkedIn ID</h1>
+        </header>̥
+        <form action="/process_id" method="POST">
+            <label for="linkedin_id">LinkedIn ID:</label>
+            <input type="text" id="linkedin_id" name="linkedin_id" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

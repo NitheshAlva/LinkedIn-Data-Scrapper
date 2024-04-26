@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Profile Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile_style.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LinkedIn Profile Data</h1>
+        </header>
+        <section class="basic-info">
+            <h2>Basic Information</h2>
+            <!-- <img src="{{ data.profile_pic_url }}" alt="Profile Picture"> -->
+            <p><strong>Name:</strong> {{ data.name }}</p>
+            <p><strong>Headline:</strong> {{ data.headline }}</p>
+        </section>
+
+        <section class="current-position">
+            <h2>Current Position</h2>
+            <ul>
+                {% for index in range((data.experience | length)-1) %}
+                    <li><strong>Position:</strong> {{ data.experience.positions[index] }}</li>
+                    <li><strong>Company:</strong> {{ data.experience.institutions[index] }}</li>
+                    <li><strong>Duration:</strong> {{ data.experience.dates[index] }}</li>
+                    <br><br>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <ul>
+                {% for index in range((data.education | length)-1) %}
+                    <li><strong>Degree:</strong> {{ data.education.positions[index] }}</li>
+                    <li><strong>School:</strong> {{ data.education.institutions[index] }}</li>
+                    <li><strong>Date:</strong> {{ data.education.dates[index] }}</li>
+                    <br><br>
+                {% endfor %}
+            </ul>
+        </section> 
+    </div>
+</body>
+</html>
